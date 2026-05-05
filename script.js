@@ -29,12 +29,25 @@ window.addEventListener('scroll', () => {
     const height = section.offsetHeight;
     const id = section.getAttribute('id');
     const link = document.querySelector(`.nav-links a[href="#${id}"]`);
-    if (link) {
-      if (scrollY >= top && scrollY < top + height) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
+    const dot = document.querySelector(`.nav-dot[data-section="${id}"]`);
+    
+    if (scrollY >= top && scrollY < top + height) {
+      if (link) link.classList.add('active');
+      if (dot) dot.classList.add('active');
+    } else {
+      if (link) link.classList.remove('active');
+      if (dot) dot.classList.remove('active');
+    }
+  });
+});
+
+// ===== NAV DOTS CLICK =====
+document.querySelectorAll('.nav-dot').forEach(dot => {
+  dot.addEventListener('click', () => {
+    const targetId = dot.getAttribute('data-section');
+    const target = document.getElementById(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
 });

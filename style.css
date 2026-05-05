@@ -767,9 +767,14 @@ img { max-width: 100%; display: block; }
 /* ===== CONTACT ===== */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+  max-width: 600px;
+  margin: 0 auto;
   gap: 3rem;
-  align-items: start;
+}
+
+.contact-info {
+  text-align: center;
 }
 
 .contact-info h2 {
@@ -788,6 +793,8 @@ img { max-width: 100%; display: block; }
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .contact-item {
